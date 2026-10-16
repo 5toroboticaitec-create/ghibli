@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explorá las películas del Studio Ghibli.">
+    <title>Ghibli World | Catálogo de películas</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="encabezado">
+        <a href="#" class="logo">🌿 Ghibli World</a>
+        <nav>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#nosotros">Acerca del proyecto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="portada">
+            <div class="portada-contenido">
+                <span class="etiqueta">UN UNIVERSO DE MAGIA Y AVENTURAS</span>
+                <h1>Historias que<br><span>viven para siempre.</span></h1>
+                <p>Explorá el maravilloso mundo de las películas de Studio Ghibli.</p>
+                <a href="#catalogo" class="boton boton-verde">Explorar películas ↓</a>
+            </div>
+            <div class="portada-decoracion" aria-hidden="true">🌱</div>
+        </section>
+
+        <section id="catalogo" class="seccion">
+            <div class="titulo-seccion">
+                <div>
+                    <span class="etiqueta">NUESTRA COLECCIÓN</span>
+                    <h2>Catálogo de películas</h2>
+                    <p>Buscá tus películas favoritas y descubrí nuevas historias.</p>
+                </div>
+                <span id="contador" class="contador">Cargando...</span>
+            </div>
+
+            <div class="filtros">
+                <div class="campo busqueda-campo">
+                    <label for="busqueda">Buscar película</label>
+                    <input
+                        type="search"
+                        id="busqueda"
+                        placeholder="Ej.: Totoro, Ponyo, Chihiro..."
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="filtroDirector">Filtrar por director</label>
+                    <select id="filtroDirector">
+                        <option value="">Todos los directores</option>
+                    </select>
+                </div>
+
+                <button id="limpiarFiltros" class="boton boton-claro">
+                    Limpiar filtros
+                </button>
+            </div>
+
+            <p id="estado" class="estado" role="status" aria-live="polite">
+                Cargando películas...
+            </p>
+
+            <div id="peliculas" class="rejilla"></div>
+        </section>
+
+        <section id="nosotros" class="acerca">
+            <div class="acerca-icono">🍃</div>
+            <h2>Un mundo lleno de imaginación</h2>
+            <p>
+                Este catálogo permite explorar películas de Studio Ghibli,
+                conocer a sus directores y descubrir las historias detrás
+                de cada obra.
+            </p>
+            <p class="fuente">Datos obtenidos de Ghibli API.</p>
+        </section>
+    </main>
+
+    <div id="modal" class="modal oculto" role="dialog"
+         aria-modal="true" aria-labelledby="modalTitulo">
+        <div class="modal-contenido">
+            <button id="cerrarModal" class="cerrar" aria-label="Cerrar ficha">
+                ✕
+            </button>
+
+            <img id="modalImagen" class="modal-imagen" src="" alt="">
+
+            <div class="modal-texto">
+                <span class="etiqueta">FICHA DE LA PELÍCULA</span>
+                <h2 id="modalTitulo"></h2>
+
+                <div class="datos">
+                    <p><strong>Director:</strong> <span id="modalDirector"></span></p>
+                    <p><strong>Año:</strong> <span id="modalAnio"></span></p>
+                    <p><strong>Duración:</strong> <span id="modalDuracion"></span></p>
+                    <p><strong>Puntuación:</strong> <span id="modalPuntuacion"></span></p>
+                </div>
+
+                <h3>Sinopsis</h3>
+                <p id="modalSinopsis" class="sinopsis"></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🌿 Ghibli World © 2026</p>
+        <p>Proyecto educativo · Información proporcionada por Ghibli API</p>
+    </footer>
+</body>
+</html>
